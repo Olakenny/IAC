@@ -1,0 +1,106 @@
+Intro to Infrastructure as Code (IaC)
+What is Iac
+Benefit
+ - cost reduction:
+ - increase in speed of deployment:
+ - reduce errors: 
+ - it improves infrastructure consistency
+
+Terraform Intro
+- TF is a declarative language. it is a cloud agnostic (i.e it can be used with any cloud for infrastructure provisioning)
+ the 2 main language that TF supports:
+  - HCL = hashicorp configuration language. ends with .tf
+  - json = m/c readable language and ends with .json.tf
+    
+Terraform workflow - main commands
+- terraform init: 
+- terraform validate: 
+- terraform fmt: 
+- terraform plan:
+- terraform apply: 
+- terraform destroy:
+Passing Credentials to configuration files
+Infrastructure Provisioning (example)
+Terraform Blocks:
+we have 8 main blocks we need to know
+1. terraform settings block:
+2. provider block
+3. resource block
+4. input variable block
+5. output variable block
+6. local values block
+7. data source block
+8. modules block
+
+
+
+Variables
+- input Variables:
+  syntax 
+   variable "variable_name"{
+     default = any
+     description = "comment"
+     type = #string, number, list, map, boolean
+    }
+
+   1. string:
+   
+   variable "pet"{
+     type = string
+     default = "dog"
+    description = "name of the pet"
+     }
+   2. number:
+
+   variable "host_port"{
+     type = number
+     default = 8080
+     }
+
+   3. boolean:
+   
+   variable "site_status"{
+     type = boolean
+     default = #false, true
+     }
+
+ 4. list: ["mango", "orange"] [1, 2,10, 5]
+   
+   variable "mylist"{
+     type = list(string)
+     default = ["dog", "cat", "goat"]
+    description = "names of the animals"
+     }
+    
+5. map: {key1: "value1", key2: "value2"}
+
+variable "mymap"{
+  type = map
+  default = {
+     key1 = "value1"
+     key2 = "vlaue2"
+     }
+}
+
+output variables
+output "pub_ip" {
+  value = resource-type.resource_name.attribute
+  }
+Security Groups
+
+Dynamic Blocks
+
+Data Sources
+
+
+
+
+Version Constraints
+Terraform Backend:
+- local Backend
+- remote Backend
+  s3, consul, terraform cloud
+
+Modules
+customize modules
+official modules
